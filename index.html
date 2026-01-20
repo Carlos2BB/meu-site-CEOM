@@ -10,9 +10,22 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: #f5f5f5;
+  background: url("https://img.freepik.com/fotos-premium/abstract-graffiti-ilustracao-background-graffiti-background-graphiti-papel-de-parede-graffiti-padrao-street-art-graffiti-graffiti-parede-de-fundo-graffiti-papel-digital-ai-generative_703884-28006.jpg?w=2000")
+    no-repeat center center / cover;
+  position: relative;
   min-height: 100vh;
 }
+
+/* FUNDO BORRADO */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  filter: blur(14px) brightness(0.5);
+  z-index: -1;
+}
+
 
 /* HEADER */
 header {
