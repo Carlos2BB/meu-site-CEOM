@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CEOM - Moda Premium</title>
 
+<!-- FONTE PREMIUM -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: url("https://img.freepik.com/fotos-premium/abstract-graffiti-ilustracao-background-graffiti-background-graphiti-papel-de-parede-graffiti-padrao-street-art-graffiti-graffiti-parede-de-fundo-graffiti-papel-digital-ai-generative_703884-28006.jpg?w=2000")
     no-repeat center center / cover;
-  position: relative;
   min-height: 100vh;
+  color: white;
+  position: relative;
 }
 
 /* FUNDO BORRADO */
@@ -22,235 +30,129 @@ body::before {
   position: fixed;
   inset: 0;
   background: inherit;
-  filter: blur(14px) brightness(0.5);
+  filter: blur(16px) brightness(0.45);
   z-index: -1;
+}
+
+/* ANIMAÇÃO BASE */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* HEADER */
 header {
-  width: 100%;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 24px;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 header h1 {
-  font-size: 30px;
-  letter-spacing: 4px;
-  font-weight: bold;
+  font-size: 32px;
+  letter-spacing: 6px;
+  font-weight: 700;
 }
 
 /* HERO */
 .hero {
   padding: 120px 20px;
   text-align: center;
-  color: white;
 }
 
 .hero h2 {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #ffcc00;
-  letter-spacing: 2px;
 }
 
 .hero p {
-  font-size: 20px;
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.6;
-  color: #f1f1f1;
-}
-
-/* SOBRE */
-.sobre-site {
-  margin: 80px auto;
-  padding: 40px 20px;
-  max-width: 900px;
-  text-align: center;
-}
-
-.sobre-site h2 {
-  color: #ffcc00;
-  margin-bottom: 20px;
-  font-size: 30px;
-}
-
-.sobre-site p {
+  max-width: 600px;
+  margin: auto;
   font-size: 18px;
-  line-height: 1.7;
-  color: #f1f1f1;
+  opacity: 0.9;
 }
 
-/* DESTAQUES */
-.destaques {
-  margin: 80px auto;
-  padding: 20px;
-  max-width: 1000px;
-  text-align: center;
-}
-
-.destaques h2 {
-  color: #ffcc00;
-  margin-bottom: 40px;
-  font-size: 32px;
-}
-
-.destaques-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
-.destaque {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffcc00;
-  letter-spacing: 1px;
-  transition: .3s;
-}
-
-.destaque:hover {
-  transform: scale(1.1);
-  color: #ffffff;
-}
-
-/* PROMOÇÃO */
-.promo {
-  margin: 100px auto;
-  max-width: 1000px;
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  color: white;
-}
-
-.promo span {
-  color: #ffcc00;
-  font-size: 28px;
-}
-
-/* BENEFÍCIOS */
-.beneficios {
+/* SEÇÕES */
+section {
   padding: 100px 20px;
   text-align: center;
 }
 
-.beneficios h2 {
-  color: #ffcc00;
-  margin-bottom: 40px;
+h2 {
   font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 600;
 }
 
-.beneficios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 30px;
-}
-
-.beneficio {
+p {
   font-size: 18px;
-  font-weight: bold;
-  color: #ffcc00;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* LISTAS SEM QUADRADOS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.item {
+  font-size: 20px;
+  font-weight: 600;
   transition: .3s;
 }
 
-.beneficio:hover {
-  color: #ffffff;
-  transform: translateY(-6px);
+.item:hover {
+  transform: scale(1.08);
+}
+
+/* PROMO */
+.promo span {
+  display: block;
+  margin-top: 15px;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 /* DEPOIMENTOS */
-.depoimentos {
-  padding: 100px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.depoimentos h2 {
-  text-align: center;
-  color: #ffcc00;
-  margin-bottom: 40px;
-  font-size: 32px;
-}
-
-.dep-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
-
 .dep {
   font-size: 16px;
-  line-height: 1.7;
-  color: #f1f1f1;
+  line-height: 1.8;
 }
 
 .dep strong {
-  color: #ffcc00;
   display: block;
   margin-bottom: 10px;
-}
-
-/* FORMULÁRIOS */
-form {
-  max-width: 600px;
-  margin: 80px auto;
-  padding: 30px;
-}
-
-form h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #ffcc00;
-}
-
-label {
-  margin-top: 15px;
-  font-weight: bold;
-  display: block;
-  color: white;
-}
-
-input {
-  width: 100%;
-  padding: 14px;
-  margin-top: 5px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-
-button {
-  width: 100%;
-  background: #ffcc00;
-  color: black;
-  padding: 15px;
-  margin-top: 25px;
-  border: none;
-  font-size: 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: .3s;
-  font-weight: bold;
-}
-
-button:hover {
-  background: white;
+  font-weight: 700;
 }
 
 /* FOOTER */
 footer {
+  padding: 30px;
   text-align: center;
-  padding: 25px;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  margin-top: 80px;
+  background: rgba(0,0,0,0.7);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* MOBILE AJUSTES */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
 }
 </style>
 </head>
@@ -261,60 +163,61 @@ footer {
   <h1>CEOM</h1>
 </header>
 
-<section class="hero">
+<section class="hero fade">
   <h2>Moda que Inspira</h2>
-  <p>Descubra roupas de alta qualidade e estilo único para todas as ocasiões.</p>
+  <p>Estilo, identidade e presença. A CEOM representa quem você é.</p>
 </section>
 
-<section class="sobre-site">
+<section class="fade">
   <h2>Sobre a CEOM</h2>
   <p>
-    A CEOM é uma marca de roupas que une estilo, identidade e atitude.
-    Criada para quem vive a moda como expressão e não como padrão.
+    A CEOM nasce da união entre streetwear e sofisticação.
+    Cada peça é criada para marcar presença, com design limpo
+    e atitude forte.
   </p>
 </section>
 
-<section class="destaques">
-  <h2>Destaques da CEOM</h2>
-  <div class="destaques-grid">
-    <div class="destaque">Qualidade Premium</div>
-    <div class="destaque">Estilo Autêntico</div>
-    <div class="destaque">Entrega Rápida</div>
-    <div class="destaque">Atendimento Exclusivo</div>
+<section class="fade">
+  <h2>Destaques</h2>
+  <div class="grid">
+    <div class="item">Qualidade Premium</div>
+    <div class="item">Identidade Autêntica</div>
+    <div class="item">Design Atemporal</div>
+    <div class="item">Entrega Rápida</div>
   </div>
 </section>
 
-<section class="promo">
-  Promoção especial de hoje<br>
-  Use o cupom <span>CEOM20</span>
+<section class="promo fade">
+  <h2>Promoção Especial</h2>
+  <span>Cupom CEOM20</span>
 </section>
 
-<section class="beneficios">
+<section class="fade">
   <h2>Por que escolher CEOM?</h2>
-  <div class="beneficios-grid">
-    <div class="beneficio">Design exclusivo</div>
-    <div class="beneficio">Conforto extremo</div>
-    <div class="beneficio">Alta durabilidade</div>
-    <div class="beneficio">Material premium</div>
-    <div class="beneficio">Modelagem moderna</div>
-    <div class="beneficio">Identidade streetwear</div>
+  <div class="grid">
+    <div class="item">Conforto Absoluto</div>
+    <div class="item">Material Premium</div>
+    <div class="item">Alta Durabilidade</div>
+    <div class="item">Estilo Urbano</div>
+    <div class="item">Modelagem Moderna</div>
+    <div class="item">Marca com Identidade</div>
   </div>
 </section>
 
-<section class="depoimentos">
-  <h2>O que nossos clientes dizem</h2>
-  <div class="dep-grid">
+<section class="fade">
+  <h2>Depoimentos</h2>
+  <div class="grid">
     <div class="dep">
-      <strong>★★★★★ – Lucas M.</strong>
-      Qualidade absurda, veste muito bem. CEOM virou minha marca favorita.
+      <strong>★★★★★ Lucas M.</strong>
+      Marca absurda. Veste muito bem.
     </div>
     <div class="dep">
-      <strong>★★★★★ – Ana Beatriz</strong>
-      Estilo diferenciado, tecido top e entrega rápida.
+      <strong>★★★★★ Ana Beatriz</strong>
+      Minimalista, linda e confortável.
     </div>
     <div class="dep">
-      <strong>★★★★★ – João Pedro</strong>
-      Marca com identidade forte. Dá pra sentir o cuidado em cada detalhe.
+      <strong>★★★★★ João Pedro</strong>
+      CEOM virou referência pra mim.
     </div>
   </div>
 </section>
@@ -322,6 +225,20 @@ footer {
 <footer>
   © 2026 CEOM — Todos os direitos reservados.
 </footer>
+
+<script>
+const elements = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const visible = window.innerHeight - 100;
+    if (top < visible) {
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
