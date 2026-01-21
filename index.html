@@ -5,238 +5,433 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CEOM - Moda Premium</title>
 
-<!-- FONTE PREMIUM -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: url("https://img.freepik.com/fotos-premium/abstract-graffiti-ilustracao-background-graffiti-background-graphiti-papel-de-parede-graffiti-padrao-street-art-graffiti-graffiti-parede-de-fundo-graffiti-papel-digital-ai-generative_703884-28006.jpg?w=2000")
-    no-repeat center center / cover;
-  min-height: 100vh;
-  color: white;
+  font-family: 'Arial', sans-serif;
+  background: url("https://img.freepik.com/fotos-premium/abstract-graffiti-ilustracao-background-graffiti-background-graphiti-papel-de-parede-graffiti-padrao-street-art-graffiti-graffiti-parede-de-fundo-graffiti-papel-digital-ai-generative_703884-28006.jpg?w=2000") no-repeat center/cover;
   position: relative;
+  min-height: 100vh;
 }
 
-/* FUNDO BORRADO */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: inherit;
-  filter: blur(16px) brightness(0.45);
+  filter: blur(12px) brightness(0.5);
   z-index: -1;
-}
-
-/* ANIMAÇÃO BASE */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 1s ease;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* HEADER */
 header {
-  padding: 24px;
-  text-align: center;
-  background: rgba(0,0,0,0.7);
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
 }
 
 header h1 {
-  font-size: 32px;
-  letter-spacing: 6px;
-  font-weight: 700;
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 /* HERO */
 .hero {
-  padding: 120px 20px;
+  padding: 60px 20px;
   text-align: center;
+  color: white;
 }
 
 .hero h2 {
-  font-size: 42px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 36px;
 }
 
 .hero p {
-  max-width: 600px;
-  margin: auto;
   font-size: 18px;
-  opacity: 0.9;
+  max-width: 600px;
+  margin: 10px auto 0;
 }
 
-/* SEÇÕES */
-section {
-  padding: 100px 20px;
+/* SOBRE */
+.sobre-site {
+  margin: 40px auto;
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  max-width: 900px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
 }
 
-h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
-  font-weight: 600;
+.sobre-site h2 {
+  color: #222;
+  margin-bottom: 15px;
+  font-size: 28px;
 }
 
-p {
+.sobre-site p {
   font-size: 18px;
-  line-height: 1.8;
-  opacity: 0.9;
+  line-height: 1.6;
+  color: #222;
+  font-weight: 500;
 }
 
-/* LISTAS SEM QUADRADOS */
-.grid {
+/* DESTAQUES */
+.destaques {
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  max-width: 1000px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.destaques h2 {
+  color: #222;
+  margin-bottom: 25px;
+}
+
+.destaques-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+  gap: 25px;
 }
 
-.item {
+.destaque {
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  font-weight: bold;
+  transition: .4s;
+}
+
+.destaque:hover {
+  transform: scale(1.06);
+}
+
+/* PROMOÇÃO */
+.promo {
+  margin: 40px auto;
+  background: #222;
+  color: white;
+  padding: 30px;
+  max-width: 1000px;
+  border-radius: 20px;
+  text-align: center;
   font-size: 20px;
-  font-weight: 600;
-  transition: .3s;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.item:hover {
-  transform: scale(1.08);
-}
-
-/* PROMO */
 .promo span {
-  display: block;
-  margin-top: 15px;
-  font-size: 28px;
-  font-weight: 700;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* BENEFÍCIOS */
+.beneficios {
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 30px 30px 0 0;
+  margin-top: 40px;
+}
+
+.beneficios h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 25px;
+}
+
+.beneficio {
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: .4s;
+}
+
+.beneficio:hover {
+  transform: translateY(-6px);
 }
 
 /* DEPOIMENTOS */
+.depoimentos {
+  background: white;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 20px;
+}
+
+.depoimentos h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.dep-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
 .dep {
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 15px;
   font-size: 16px;
-  line-height: 1.8;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  transition: .4s;
+}
+
+.dep:hover {
+  transform: scale(1.05);
 }
 
 .dep strong {
+  color: #222;
   display: block;
-  margin-bottom: 10px;
-  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* FORMULÁRIOS */
+form {
+  max-width: 600px;
+  background: white;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  display: block;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 2px solid #222;
+  font-size: 16px;
+}
+
+/* OLHO DA SENHA */
+.eye-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-10px);
+  width: 28px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.eye-btn:hover {
+  opacity: 1;
+}
+
+button {
+  width: 100%;
+  background: #222;
+  color: white;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: #555;
 }
 
 /* FOOTER */
 footer {
-  padding: 30px;
   text-align: center;
-  background: rgba(0,0,0,0.7);
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-/* MOBILE AJUSTES */
-@media (max-width: 600px) {
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 26px;
-  }
+  padding: 20px;
+  background: #222;
+  color: white;
+  margin-top: 40px;
 }
 </style>
 </head>
-
 <body>
 
 <header>
   <h1>CEOM</h1>
 </header>
 
-<section class="hero fade">
-  <h2>Moda que Inspira</h2>
-  <p>Estilo, identidade e presença. A CEOM representa quem você é.</p>
+<section class="hero">
+  <h2>Moda Premium que Inspira</h2>
+  <p>Descubra roupas de alta qualidade e estilo único para todas as ocasiões.</p>
 </section>
 
-<section class="fade">
+<section class="sobre-site">
   <h2>Sobre a CEOM</h2>
   <p>
-    A CEOM nasce da união entre streetwear e sofisticação.
-    Cada peça é criada para marcar presença, com design limpo
-    e atitude forte.
+    A CEOM é uma marca de roupas que combina estilo, conforto e exclusividade. 
+    Nosso objetivo é trazer tendências modernas com qualidade premium para você se sentir confiante e elegante.
   </p>
 </section>
 
-<section class="fade">
-  <h2>Destaques</h2>
-  <div class="grid">
-    <div class="item">Qualidade Premium</div>
-    <div class="item">Identidade Autêntica</div>
-    <div class="item">Design Atemporal</div>
-    <div class="item">Entrega Rápida</div>
+<section class="destaques">
+  <h2>Destaques da CEOM</h2>
+  <div class="destaques-grid">
+    <div class="destaque">Roupas 100% de qualidade</div>
+    <div class="destaque">Estilo único e moderno</div>
+    <div class="destaque">Entrega rápida e segura</div>
+    <div class="destaque">Atendimento premium</div>
   </div>
 </section>
 
-<section class="promo fade">
-  <h2>Promoção Especial</h2>
-  <span>Cupom CEOM20</span>
+<section class="promo">
+  Promoção especial de hoje: <br>
+  Use o cupom <span>CEOM20</span> e ganhe desconto em compras selecionadas!
 </section>
 
-<section class="fade">
-  <h2>Por que escolher CEOM?</h2>
-  <div class="grid">
-    <div class="item">Conforto Absoluto</div>
-    <div class="item">Material Premium</div>
-    <div class="item">Alta Durabilidade</div>
-    <div class="item">Estilo Urbano</div>
-    <div class="item">Modelagem Moderna</div>
-    <div class="item">Marca com Identidade</div>
+<section class="beneficios">
+  <h2>Por que escolher a CEOM?</h2>
+  <div class="beneficios-grid">
+    <div class="beneficio">Design exclusivo</div>
+    <div class="beneficio">Conforto garantido</div>
+    <div class="beneficio">Alta durabilidade</div>
+    <div class="beneficio">Material premium</div>
+    <div class="beneficio">Tamanhos variados</div>
+    <div class="beneficio">Atendimento dedicado</div>
   </div>
 </section>
 
-<section class="fade">
-  <h2>Depoimentos</h2>
-  <div class="grid">
+<section class="depoimentos">
+  <h2>O que nossos clientes dizem</h2>
+  <div class="dep-grid">
     <div class="dep">
-      <strong>★★★★★ Lucas M.</strong>
-      Marca absurda. Veste muito bem.
+      <strong>★ ★ ★ ★ ★ – Lucas M.</strong>
+      Produtos de excelente qualidade! Atendimento impecável.
     </div>
     <div class="dep">
-      <strong>★★★★★ Ana Beatriz</strong>
-      Minimalista, linda e confortável.
+      <strong>★ ★ ★ ★ ★ – Ana Beatriz</strong>
+      Roupas confortáveis e estilosas. Super recomendo!
     </div>
     <div class="dep">
-      <strong>★★★★★ João Pedro</strong>
-      CEOM virou referência pra mim.
+      <strong>★ ★ ★ ★ ★ – João Pedro</strong>
+      Entrega rápida e produtos de alta qualidade. Compra certa!
     </div>
   </div>
 </section>
+
+<form id="formulario">
+  <h2>Cadastre-se e receba novidades</h2>
+  <label for="nome">Nome completo:</label>
+  <input type="text" id="nome" required>
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" required>
+
+  <label for="telefone">Telefone:</label>
+  <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+
+  <label for="senha">Senha:</label>
+  <div class="input-wrapper">
+    <input type="password" id="senha" required>
+    <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" class="eye-btn" id="toggleSenha">
+  </div>
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+<form id="login-rapido">
+  <h2>Login rápido</h2>
+  <label for="nome-rapido">Digite seu nome:</label>
+  <input type="text" id="nome-rapido" placeholder="Seu nome">
+  <button type="submit">Entrar rapidamente</button>
+</form>
 
 <footer>
   © 2026 CEOM — Todos os direitos reservados.
 </footer>
 
 <script>
-const elements = document.querySelectorAll('.fade');
+// MOSTRAR / OCULTAR SENHA
+const senhaInput = document.getElementById("senha");
+const toggleSenha = document.getElementById("toggleSenha");
 
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    const visible = window.innerHeight - 100;
-    if (top < visible) {
-      el.classList.add('show');
-    }
-  });
+toggleSenha.addEventListener("click", () => {
+  if (senhaInput.type === "password") {
+    senhaInput.type = "text";
+    toggleSenha.style.opacity = "1";
+  } else {
+    senhaInput.type = "password";
+    toggleSenha.style.opacity = "0.7";
+  }
+});
+
+// FORMULÁRIO COMPLETO
+document.getElementById("formulario").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const telefone = document.getElementById("telefone").value;
+  const senha = document.getElementById("senha").value;
+
+  localStorage.setItem("tipoLogin", "completo");
+  localStorage.setItem("accountName", nome);
+  localStorage.setItem("accountEmail", email);
+  localStorage.setItem("accountPhone", telefone);
+  localStorage.setItem("accountPass", senha);
+
+  alert("Cadastro realizado com sucesso!");
+});
+
+// LOGIN RÁPIDO
+document.getElementById("login-rapido").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nomeRapido = document.getElementById("nome-rapido").value.trim();
+  if(nomeRapido === "") {
+    alert("Digite um nome para login rápido!");
+    return;
+  }
+  localStorage.setItem("tipoLogin", "rapido");
+  localStorage.setItem("accountName", nomeRapido);
+  localStorage.removeItem("accountEmail");
+  localStorage.removeItem("accountPhone");
+  localStorage.removeItem("accountPass");
+
+  alert("Login rápido efetuado!");
 });
 </script>
 
