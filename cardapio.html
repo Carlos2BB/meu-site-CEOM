@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio - X Salada</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Cardápio</h1>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="finalizar.html">Finalizar Pedido</a>
+    </nav>
+</header>
+
+<section class="cardapio">
+
+    <div class="item">
+        <h3>X-Salada Tradicional</h3>
+        <p>Pão, hambúrguer, queijo, alface e tomate</p>
+        <span>R$ 15,00</span>
+        <button onclick="adicionar('X-Salada Tradicional', 15)">Adicionar</button>
+    </div>
+
+    <div class="item">
+        <h3>X-Bacon</h3>
+        <p>Hambúrguer, queijo, bacon crocante</p>
+        <span>R$ 18,00</span>
+        <button onclick="adicionar('X-Bacon', 18)">Adicionar</button>
+    </div>
+
+    <div class="item">
+        <h3>X-Tudo</h3>
+        <p>Completo com tudo que tem direito</p>
+        <span>R$ 22,00</span>
+        <button onclick="adicionar('X-Tudo', 22)">Adicionar</button>
+    </div>
+
+</section>
+
+<section class="bebidas">
+    <h2>Bebidas 🥤</h2>
+
+    <div class="item">
+        <h3>Refrigerante Lata</h3>
+        <span>R$ 5,00</span>
+        <button onclick="adicionar('Refrigerante', 5)">Adicionar</button>
+    </div>
+
+    <div class="item">
+        <h3>Suco Natural</h3>
+        <span>R$ 7,00</span>
+        <button onclick="adicionar('Suco', 7)">Adicionar</button>
+    </div>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>
