@@ -31,22 +31,32 @@
     <input id="telefone" placeholder="Telefone">
     <input id="endereco" placeholder="Endereço">
 
-    <h2>Cupom</h2>
-    <input id="cupom" placeholder="Digite o cupom">
-    <button onclick="aplicarCupom()">Aplicar</button>
-
     <h2>Pagamento</h2>
-    <select id="pagamento">
-        <option>Pix</option>
-        <option>Cartão</option>
-        <option>Dinheiro</option>
+    <select id="pagamento" onchange="mostrarPagamento()">
+        <option value="">Selecione</option>
+        <option value="Pix">Pix</option>
+        <option value="Cartao">Cartão</option>
+        <option value="Dinheiro">Dinheiro</option>
     </select>
 
-    <button class="btn finalizar" onclick="enviarWhatsApp()">
-        Enviar Pedido no WhatsApp
+    <div id="infoPix" class="pagamentoBox">
+        <p><strong>Pix</strong></p>
+        <p>Chave Pix: <b>11999999999</b></p>
+        <p>Nome: X Salada</p>
+    </div>
+
+    <div id="infoCartao" class="pagamentoBox">
+        <p><strong>Cartão</strong></p>
+        <p>Aceitamos crédito e débito</p>
+    </div>
+
+    <button class="btn finalizar" onclick="gerarPedido()">
+        Gerar pedido para copiar
     </button>
 
-    <p id="confirmacao"></p>
+    <h2>Pedido gerado</h2>
+    <textarea id="pedidoTexto" rows="12" readonly></textarea>
+    <button onclick="copiarPedido()">📋 Copiar pedido</button>
 </div>
 
 </section>
