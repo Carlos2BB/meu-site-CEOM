@@ -105,6 +105,12 @@ input, select {
     margin-bottom: 10px;
 }
 
+.voltar {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
 footer {
     background: #c62828;
     color: white;
