@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Pedido</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Finalizar Pedido</h1>
+</header>
+
+<section class="login">
+    <h2>Entrar</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Senha">
+    <button>Entrar</button>
+    <p>Ou continue sem login</p>
+</section>
+
+<section class="pedido">
+    <h2>Seu Pedido</h2>
+    <ul id="listaPedido"></ul>
+    <h3>Total: R$ <span id="total">0</span></h3>
+</section>
+
+<section class="entrega">
+    <h2>Dados para Entrega</h2>
+    <input type="text" placeholder="Nome">
+    <input type="text" placeholder="Telefone">
+    <input type="text" placeholder="Endereço">
+    <input type="text" placeholder="Complemento">
+</section>
+
+<section class="pagamento">
+    <h2>Forma de Pagamento</h2>
+    <select>
+        <option>Pix</option>
+        <option>Cartão de Crédito</option>
+        <option>Cartão de Débito</option>
+        <option>Dinheiro</option>
+    </select>
+</section>
+
+<button class="finalizar">Finalizar Compra</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
