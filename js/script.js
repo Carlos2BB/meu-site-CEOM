@@ -1,6 +1,5 @@
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let taxaEntrega = 5;
-let desconto = 0;
 
 function salvar() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
@@ -22,14 +21,14 @@ function aumentar(i) {
 
 function diminuir(i) {
     if (carrinho[i].qtd > 1) carrinho[i].qtd--;
-    else carrinho.splice(i,1);
+    else carrinho.splice(i, 1);
     salvar();
     atualizarCarrinho();
 }
 
 function total() {
-    let soma = carrinho.reduce((t,i)=>t+i.preco*i.qtd,0);
-    return soma + taxaEntrega - desconto;
+    let soma = carrinho.reduce((t, i) => t + i.preco * i.qtd, 0);
+    return soma + taxaEntrega;
 }
 
 function atualizarCarrinho() {
@@ -38,7 +37,7 @@ function atualizarCarrinho() {
     if (!lista) return;
 
     lista.innerHTML = "";
-    carrinho.forEach((item,i)=>{
+    carrinho.forEach((item, i) => {
         lista.innerHTML += `
         <li>
             ${item.nome} - R$ ${item.preco}<br>
@@ -53,40 +52,30 @@ function atualizarCarrinho() {
     totalSpan.innerText = total().toFixed(2);
 }
 
-function aplicarCupom() {
-    let cupom = document.getElementById("cupom").value;
-    if (cupom === "X10") {
-        desconto = 10;
-        alert("Cupom aplicado! R$10 OFF");
-    } else {
-        desconto = 0;
-        alert("Cupom inválido");
-    }
-    atualizarCarrinho();
-    atualizarFinal();
-}
-
 function atualizarFinal() {
     let listaFinal = document.getElementById("listaFinal");
     let totalFinal = document.getElementById("totalFinal");
     if (!listaFinal) return;
 
     listaFinal.innerHTML = "";
-    carrinho.forEach(item=>{
+    carrinho.forEach(item => {
         listaFinal.innerHTML += `<li>${item.nome} (${item.qtd}x)</li>`;
     });
     totalFinal.innerText = total().toFixed(2);
 }
 
-window.onload = ()=>{
-    atualizarCarrinho();
-    atualizarFinal();
-};
+function mostrarPagamento() {
+    document.getElementById("infoPix").style.display = "none";
+    document.getElementById("infoCartao").style.display = "none";
 
-function enviarWhatsApp() {
-    let hora = new Date().getHours();
-    if (hora < 18 || hora > 23) {
-        alert("Estamos fechados! Funcionamos das 18h às 23h.");
+    let tipo = document.getElementById("pagamento").value;
+    if (tipo === "Pix") document.getElementById("infoPix").style.display = "block";
+    if (tipo === "Cartao") document.getElementById("infoCartao").style.display = "block";
+}
+
+function gerarPedido() {
+    if (carrinho.length === 0) {
+        alert("Carrinho vazio!");
         return;
     }
 
@@ -95,27 +84,36 @@ function enviarWhatsApp() {
     let endereco = document.getElementById("endereco").value;
     let pagamento = document.getElementById("pagamento").value;
 
-    if (!nome || !telefone || !endereco) {
+    if (!nome || !telefone || !endereco || !pagamento) {
         alert("Preencha todos os dados!");
         return;
     }
 
-    let msg = "🍔 *PEDIDO X SALADA* %0A%0A";
-    carrinho.forEach(i=>{
-        msg += `• ${i.nome} - ${i.qtd}x%0A`;
+    let texto = "🍔 PEDIDO - X SALADA\n\n";
+
+    carrinho.forEach(item => {
+        texto += `- ${item.nome} | ${item.qtd}x | R$ ${(item.preco * item.qtd).toFixed(2)}\n`;
     });
 
-    msg += `%0A🚚 Taxa: R$ 5,00`;
-    msg += `%0A💸 Desconto: R$ ${desconto}`;
-    msg += `%0A💰 *Total:* R$ ${total().toFixed(2)}`;
-    msg += `%0A%0A👤 ${nome}`;
-    msg += `%0A📞 ${telefone}`;
-    msg += `%0A🏠 ${endereco}`;
-    msg += `%0A💳 ${pagamento}`;
+    texto += `\n🚚 Taxa de entrega: R$ 5,00`;
+    texto += `\n💰 TOTAL: R$ ${total().toFixed(2)}\n`;
 
-    window.open("https://wa.me/55SEUNUMEROAQUI?text="+msg,"_blank");
+    texto += `\n👤 Nome: ${nome}`;
+    texto += `\n📞 Telefone: ${telefone}`;
+    texto += `\n🏠 Endereço: ${endereco}`;
+    texto += `\n💳 Pagamento: ${pagamento}`;
 
-    localStorage.clear();
-    document.getElementById("confirmacao").innerText =
-        "✅ Pedido enviado com sucesso!";
+    document.getElementById("pedidoTexto").value = texto;
 }
+
+function copiarPedido() {
+    let campo = document.getElementById("pedidoTexto");
+    campo.select();
+    document.execCommand("copy");
+    alert("Pedido copiado!");
+}
+
+window.onload = () => {
+    atualizarCarrinho();
+    atualizarFinal();
+};
