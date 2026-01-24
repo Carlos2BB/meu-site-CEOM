@@ -11,11 +11,17 @@
     <h1>Finalizar Pedido</h1>
 </header>
 
+<div class="voltar">
+    <button onclick="history.back()">⬅ Voltar</button>
+    <a href="cardapio.html" class="btn">🍔 Cardápio</a>
+</div>
+
 <section class="checkout">
 
 <div class="resumo">
     <h2>Resumo</h2>
     <ul id="listaFinal"></ul>
+    <p>Taxa de entrega: R$ 5,00</p>
     <h3>Total: R$ <span id="totalFinal">0</span></h3>
 </div>
 
@@ -24,6 +30,10 @@
     <input id="nome" placeholder="Nome">
     <input id="telefone" placeholder="Telefone">
     <input id="endereco" placeholder="Endereço">
+
+    <h2>Cupom</h2>
+    <input id="cupom" placeholder="Digite o cupom">
+    <button onclick="aplicarCupom()">Aplicar</button>
 
     <h2>Pagamento</h2>
     <select id="pagamento">
@@ -35,6 +45,8 @@
     <button class="btn finalizar" onclick="enviarWhatsApp()">
         Enviar Pedido no WhatsApp
     </button>
+
+    <p id="confirmacao"></p>
 </div>
 
 </section>
