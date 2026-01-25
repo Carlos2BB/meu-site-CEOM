@@ -17,6 +17,7 @@ body { margin: 0; background: #f2f2f2; }
     color: white; 
     margin-left: 15px; 
     text-decoration: none; 
+    font-weight: bold;
 }
 
 /* BOTOES */
@@ -29,6 +30,11 @@ body { margin: 0; background: #f2f2f2; }
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffc107;
 }
 
 /* CONTAINER CARDAPIO + CARRINHO */
@@ -47,6 +53,12 @@ body { margin: 0; background: #f2f2f2; }
     margin-bottom: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .produto h3 { margin: 0; }
@@ -59,6 +71,11 @@ body { margin: 0; background: #f2f2f2; }
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.produto button:hover {
+    background: #b71c1c;
 }
 
 /* PRODUTO COM IMAGEM NO RETÂNGULO TODO */
@@ -72,6 +89,12 @@ body { margin: 0; background: #f2f2f2; }
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produto-imagem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 /* TEXTO SOBRE IMAGEM */
@@ -89,6 +112,10 @@ body { margin: 0; background: #f2f2f2; }
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.produto-imagem button:hover {
+    background: rgba(183, 28, 28, 0.85);
 }
 
 /* CARRINHO */
@@ -121,6 +148,11 @@ body { margin: 0; background: #f2f2f2; }
     color: white;
     cursor: pointer;
     border-radius: 4px;
+    transition: 0.2s;
+}
+
+.qtd button:hover {
+    background: #b71c1c;
 }
 
 /* RESPONSIVO */
