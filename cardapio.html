@@ -17,55 +17,59 @@
 
 <div class="container">
 
-<section class="produtos">
-    <h2>Lanches</h2>
+    <section class="produtos">
+        <h2>Lanches</h2>
 
-    <!-- X-SALADA COM IMAGEM -->
-    <div class="produto produto-imagem" data-nome="X-Salada" data-preco="15">
-        <h3>X-Salada</h3>
-        <p>Pão, hambúrguer, queijo, alface e tomate</p>
-        <span>R$ 15,00</span>
-        <button onclick="addCarrinho('X-Salada',15)">Adicionar</button>
-    </div>
+        <!-- X-SALADA COM IMAGEM -->
+        <div class="produto produto-imagem" data-nome="X-Salada" data-preco="15">
+            <h3>X-Salada</h3>
+            <img src="https://anamariabraga.globo.com/wp-content/uploads/2016/11/x-salada-classico.jpg" 
+                 alt="X-Salada" class="imagem-produto">
+            <p>Pão, hambúrguer, queijo, alface e tomate</p>
+            <span>R$ 15,00</span>
+            <button onclick="addCarrinho('X-Salada',15)">Adicionar</button>
+        </div>
 
-    <!-- X-BACON COM IMAGEM -->
-    <div class="produto produto-imagem-bacon" data-nome="X-Bacon" data-preco="18">
-        <h3>X-Bacon</h3>
-        <p>Hambúrguer, queijo e bacon</p>
-        <span>R$ 18,00</span>
-        <button onclick="addCarrinho('X-Bacon',18)">Adicionar</button>
-    </div>
+        <!-- X-BACON COM IMAGEM -->
+        <div class="produto produto-imagem-bacon" data-nome="X-Bacon" data-preco="18">
+            <h3>X-Bacon</h3>
+            <p>Hambúrguer, queijo e bacon</p>
+            <span>R$ 18,00</span>
+            <button onclick="addCarrinho('X-Bacon',18)">Adicionar</button>
+        </div>
 
-    <!-- X-TUDO -->
-    <div class="produto" data-nome="X-Tudo" data-preco="22">
-        <h3>X-Tudo</h3>
-        <p>Completo</p>
-        <span>R$ 22,00</span>
-        <button onclick="addCarrinho('X-Tudo',22)">Adicionar</button>
-    </div>
+        <!-- X-TUDO -->
+        <div class="produto" data-nome="X-Tudo" data-preco="22">
+            <h3>X-Tudo</h3>
+            <p>Completo</p>
+            <span>R$ 22,00</span>
+            <button onclick="addCarrinho('X-Tudo',22)">Adicionar</button>
+        </div>
 
-    <h2>Bebidas</h2>
+        <h2>Bebidas</h2>
 
-    <div class="produto" data-nome="Refrigerante" data-preco="5">
-        <h3>Refrigerante</h3>
-        <span>R$ 5,00</span>
-        <button onclick="addCarrinho('Refrigerante',5)">Adicionar</button>
-    </div>
+        <div class="produto" data-nome="Refrigerante" data-preco="5">
+            <h3>Refrigerante</h3>
+            <span>R$ 5,00</span>
+            <button onclick="addCarrinho('Refrigerante',5)">Adicionar</button>
+        </div>
 
-    <div class="produto" data-nome="Suco Natural" data-preco="7">
-        <h3>Suco Natural</h3>
-        <span>R$ 7,00</span>
-        <button onclick="addCarrinho('Suco Natural',7)">Adicionar</button>
-    </div>
-</section>
+        <div class="produto" data-nome="Suco Natural" data-preco="7">
+            <h3>Suco Natural</h3>
+            <span>R$ 7,00</span>
+            <button onclick="addCarrinho('Suco Natural',7)">Adicionar</button>
+        </div>
+    </section>
 
-<aside class="carrinho">
-    <h2>🛒 Carrinho</h2>
-    <ul id="listaCarrinho"></ul>
-    <p>Taxa de entrega: R$ 5,00</p>
-    <p class="total">Total: R$ <span id="total">0</span></p>
-    <button class="btn" onclick="finalizarPedido()">Finalizar Pedido</button>
-</aside>
+    <aside class="carrinho">
+        <h2>🛒 Carrinho</h2>
+        <ul id="listaCarrinho"></ul>
+        <p>Taxa de entrega: R$ 5,00</p>
+        <p class="total">Total: R$ <span id="total">0</span></p>
+        <button class="btn" onclick="finalizarPedido()">Finalizar Pedido</button>
+    </aside>
+
+</div>
 
 <script src="js/script.js"></script>
 </body>
