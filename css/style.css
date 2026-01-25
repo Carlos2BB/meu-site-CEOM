@@ -17,7 +17,31 @@ body { margin: 0; background: #f2f2f2; }
     color: white; 
     margin-left: 15px; 
     text-decoration: none; 
-    font-weight: bold;
+}
+
+/* BANNER COM IMAGEM */
+.banner-imagem {
+    background-image: url("https://i0.wp.com/anamariabraga.globo.com/wp-content/uploads/2016/11/x-salada-classico.jpg?fit=1200%2C675&ssl=1");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+}
+
+.banner-imagem::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(183, 28, 28, 0.65); /* camada vermelha sobre a imagem */
+}
+
+.banner-conteudo {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* BOTOES */
@@ -30,11 +54,22 @@ body { margin: 0; background: #f2f2f2; }
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: 0.3s;
 }
 
-.btn:hover {
-    background: #ffc107;
+/* DESTAQUES */
+.destaques {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 /* CONTAINER CARDAPIO + CARRINHO */
@@ -53,12 +88,6 @@ body { margin: 0; background: #f2f2f2; }
     margin-bottom: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.produto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .produto h3 { margin: 0; }
@@ -71,51 +100,6 @@ body { margin: 0; background: #f2f2f2; }
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.produto button:hover {
-    background: #b71c1c;
-}
-
-/* PRODUTO COM IMAGEM NO RETÂNGULO TODO */
-.produto-imagem {
-    background-image: url('https://anamariabraga.globo.com/wp-content/uploads/2023/08/x-salada-caseiro-768x432.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.produto-imagem:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
-
-/* TEXTO SOBRE IMAGEM */
-.produto-imagem h3,
-.produto-imagem p,
-.produto-imagem span {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-/* BOTÃO SOBRE IMAGEM */
-.produto-imagem button {
-    background: rgba(198, 40, 40, 0.85);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.produto-imagem button:hover {
-    background: rgba(183, 28, 28, 0.85);
 }
 
 /* CARRINHO */
@@ -148,16 +132,66 @@ body { margin: 0; background: #f2f2f2; }
     color: white;
     cursor: pointer;
     border-radius: 4px;
-    transition: 0.2s;
 }
 
-.qtd button:hover {
-    background: #b71c1c;
+/* FINALIZAR PEDIDO / CHECKOUT */
+.checkout {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.resumo, .dados {
+    background: white;
+    padding: 20px;
+    flex: 1;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* PAGAMENTO */
+.pagamentoBox {
+    display: none;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* BOTAO COPIAR PEDIDO */
+textarea {
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    font-family: monospace;
+}
+
+.voltar {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #c62828;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
 }
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-    .container {
+    .container, .checkout, .destaques {
         flex-direction: column;
     }
 }
